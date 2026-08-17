@@ -50,6 +50,6 @@ func main() {
 	fmt.Println(CountRepeats("ABCABC"))       // Output: ABCABC
 	fmt.Println(CountRepeats("AAABBC"))       // Output: A3B2C
 	fmt.Println(CountRepeats("JjjJohhnnnNn")) // Output: Jj3Joh2n3Nn
-	fmt.Println(CountRepeats("     "))
-	fmt.Println(CountRepeats("  Jaaccccckk   ")) // Output:  5
+	fmt.Println(CountRepeats("     ")) // Output:  5
+	fmt.Println(CountRepeats("  Jaaccccckk   "))
 }
