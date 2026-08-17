@@ -23,11 +23,26 @@ func CountRepeats(s string) string {
 
 		// Append count using fmt if character repeated
 		if counter > 1 {
-			result += fmt.Sprintf("%d", counter)
+			result += intToString(counter)
 		}
 		counter = 1
 	}
 
+	return result
+}
+
+func intToString(n int) string {
+	if n == 0 {
+		return "0"
+	}
+
+	result := ""
+
+	for n > 0 {
+		digit := n % 10
+		result += string(rune('0'+digit)) + result
+		n = n / 10
+	}
 	return result
 }
 
