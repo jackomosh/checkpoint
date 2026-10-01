@@ -8,7 +8,6 @@ func RepeatAlpha(s string) string {
 	count := 1
 
 	for _, ch := range s {
-
 		if ch >= 'A' && ch <= 'Z' {
 			count = int(ch) - 'A' + 1
 		} else if ch >= 'a' && ch <= 'z' {
@@ -21,9 +20,7 @@ func RepeatAlpha(s string) string {
 			result += string(ch)
 		}
 	}
-
 	return result
-
 }
 
 func main() {
