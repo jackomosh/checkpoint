@@ -2,36 +2,38 @@ package main
 
 import (
 	"fmt"
-	"strings"
-	"unicode"
 )
 
 func longestWord(str string) string {
 
-	if len(str) == 0 {
-		return ""
-	}
+	longest := ""
+	current := ""
 
-	words := strings.Fields(str)
-	longword := ""
+	for i := 0; i < len(str); i++ {
 
-	for _, word := range words {
-		cleaned := ""
-		for _, ch := range word {
-			if unicode.IsLetter(ch) || unicode.IsDigit(ch) {
-				cleaned += string(ch)
+		// set characters at the str[i]
+		ch := str[i]
+
+		if ch >= 'A' && ch <= 'Z' || ch >= 'a' && ch <= 'z' || ch >= '0' && ch <= '9' {
+			current += string(ch)
+		} else {
+			if len(current) > len(longest) {
+				longest = current
 			}
-		}
-		if len(cleaned) > len(longword) {
-			longword = cleaned
+			current = ""
 		}
 	}
-	return longword
+
+	if len(current) > len(longest) {
+		longest = current
+	}
+
+	return longest
 }
 
 func main() {
-	test1 := "The Tiger and the Panda!!"
-	test2 := "Check this: @apple, #banana, &cherry."
+	test1 := "The Tiger and the Pandaaa"
+	test2 := "Check this: apple, banana, cherries."
 	test3 := "122 2314 25"
 
 	// Using %v allows Go to automatically handle strings and integers safely
